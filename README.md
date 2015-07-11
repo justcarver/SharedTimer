@@ -1,7 +1,10 @@
-# Timer-client
+# Shared Timer
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+A web application to manager and share Timers.
+
+Inspired by the X-Wing Miniatures Game by Fantasy Flight games.  It allows a tournament organizer
+It allows a Tournament organizer to create and manage the round times, while sharing a link to allow
+players to view an approximate time remaining.
 
 ## Prerequisites
 
