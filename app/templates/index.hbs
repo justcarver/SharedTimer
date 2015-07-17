@@ -1,18 +1,11 @@
-<div class="container active">
-    <h3>
-        Create New Timer
-    </h3>
-    <div class="content">
-        {{input type="text" value=name}}
-        <label>Enter Event Name</label>
-        <button >Create</button>
-    </div>
-</div>
-<div class="container">
-    <h3>
-        Find a timer
-    </h3>
+<h3>
+    Create New Timer
+</h3>
+<div class="content">
     {{input type="text" value=name}}
     <label>Enter Event Name</label>
-    <button>Find</button>
+    <button >Create</button>
 </div>
+<h3>
+    {{#link-to 'find'}} Find a timer{{/link-to}}
+</h3>
