@@ -2,9 +2,9 @@
     Create New Timer
 </h3>
 <div class="content">
-    {{input type="text" value=name}}
+    {{input type="text" value=roomName}}
     <label>Enter Event Name</label>
-    <button >Create</button>
+    <button {{action 'create'}}>Create</button>
 </div>
 <h3>
     {{#link-to 'find'}} Find a timer{{/link-to}}
