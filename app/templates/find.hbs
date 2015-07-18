@@ -1,5 +1,8 @@
 <ul>
     {{#each model as |item|}}
-        <li>{{item.name}}</li>
+        <li>
+            <p>{{#link-to 'view' item}}{{item.name}}{{/link-to}}</p>
+            <p>{{item.startTime}}</p>
+        </li>
     {{/each}}
 </ul>

@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
                 var self = this;
                 timer.save().then(
                     function (timer) {
-                        self.transitionToRoute('view',timer);
+                        self.transitionToRoute('manage',timer);
                     }
                 );
             }
