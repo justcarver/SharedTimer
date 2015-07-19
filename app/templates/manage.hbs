@@ -1,3 +1,20 @@
 <h3>
     {{model.name}}
 </h3>
+<span>{{model.hours}}</span>
+<span>:</span>
+<span>{{model.minutes}}</span>
+<span>:</span>
+<span>{{model.seconds}}</span>
+{{#if model.isActive}}
+    <div>
+        The timer is active. <button {{action 'stopTimer'}}>Stop</button>
+    </div>
+{{else}}
+    <div>
+        The timer is not active. <button {{action 'startTimer'}}>Start</button>
+    </div>
+{{/if}}
+
+
+<button {{action 'deleteTimer'}}>Delete Timer</button>
