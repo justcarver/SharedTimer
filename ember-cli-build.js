@@ -19,6 +19,6 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
   app.import('bower_components/moment/moment.js');
-  app.import('bower_components/qrcode.js/qrcode.js');
+  app.import('bower_components/jquery-qrcode/jquery.qrcode.min.js')
   return app.toTree();
 };

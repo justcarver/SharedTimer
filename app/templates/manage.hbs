@@ -1,20 +1,71 @@
 <h3>
     {{model.name}}
 </h3>
-<span>{{model.hours}}</span>
-<span>:</span>
-<span>{{model.minutes}}</span>
-<span>:</span>
-<span>{{model.seconds}}</span>
+<div class="time-display">
+    <span class="time-unit">
+        {{#unless model.isActive}}
+            <div>
+                <button {{action 'addHour'}}>{{fa-icon 'chevron-up'}}</button>
+            </div>
+        {{/unless}}
+        <div>
+            {{model.hours}}
+        </div>
+        {{#unless model.isActive}}
+            <div>
+                <button {{action 'removeHour'}}>{{fa-icon 'chevron-down'}}</button>
+            </div>
+        {{/unless}}
+    </span>
+    <span class="time-divider">:</span>
+    <span class="time-unit">
+        {{#unless model.isActive}}
+            <div>
+                <button {{action 'addMinute'}}>{{fa-icon 'chevron-up'}}</button>
+            </div>
+        {{/unless}}
+        <div>
+            {{model.minutes}}
+        </div>
+        {{#unless model.isActive}}
+            <div>
+                <button {{action 'removeMinute'}}>{{fa-icon 'chevron-down'}}</button>
+            </div>
+        {{/unless}}
+    </span>
+    <span class="time-divider">:</span>
+    <span class="time-unit">
+        {{#unless model.isActive}}
+            <div>
+                <button {{action 'addSecond'}}>{{fa-icon 'chevron-up'}}</button>
+            </div>
+        {{/unless}}
+        <div>
+            {{model.seconds}}
+        </div>
+        {{#unless model.isActive}}
+            <div>
+                <button {{action 'removeSecond'}}>{{fa-icon 'chevron-down'}}</button>
+            </div>
+        {{/unless}}
+    </span>
+</div>
 {{#if model.isActive}}
     <div>
-        The timer is active. <button {{action 'stopTimer'}}>Stop</button>
+        <button {{action 'stopTimer'}}>Stop Timer</button>
     </div>
 {{else}}
     <div>
-        The timer is not active. <button {{action 'startTimer'}}>Start</button>
+        <button {{action 'startTimer'}}>Start Timer</button>
     </div>
 {{/if}}
 
+{{#qr-code  id=model.id}}
+{{/qr-code}}
 
+
+<h3>
+    If you are no longer needing to run a timer, please use the button
+    below to delete this timer.
+</h3>
 <button {{action 'deleteTimer'}}>Delete Timer</button>

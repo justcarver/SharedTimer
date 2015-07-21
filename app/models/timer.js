@@ -3,42 +3,53 @@ import DS from 'ember-data';
 export default DS.Model.extend({
     name: DS.attr('string'),
     roundNo: DS.attr('number', {defaultValue: 1}),
-    startDate: DS.attr('date',
-        {defaultValue: function () { return new Date(); }}),
+    startDate: DS.attr('string',
+        {defaultValue: function () {
+            return new Date();
+        }}),
     startTime: DS.attr('date',
-        {defaultValue: function () { return new Date(); }}),
+        {defaultValue: function () {
+            return new Date();
+        }}),
     duration: DS.attr('number',
         {defaultValue: 3600}),
     isActive: DS.attr('boolean', {defaultValue: false}),
+    endTime: function () {
+        return moment(this.get('startTime')).add(this.get('duration'),'seconds');
+    }.property('startTime','duration'),
+    timeRemaining: function () {
+        return moment(this.get('endTime')).diff(this.get('startTime'));
+    }.property('startTime','endTime'),
     hours: function () {
-        var hours = Math.floor(this.get('duration') / 3600);
+        var hours = Math.floor(this.get('timeRemaining') / 3600000);
         if (hours < 10) {
             hours = "0" + hours;
             return hours;
         } else {
             return hours;
         }
-    }.property('duration'),
+    }.property('timeRemaining'),
     minutes: function () {
-        var hours = parseInt(this.get('hours')) * 3600;
-        var minutes = this.get('duration') - hours;
-        minutes = Math.floor( minutes / 60 );
+        var hours = parseInt(this.get('hours')) * 3600000;
+        var minutes = this.get('timeRemaining') - hours;
+        minutes = Math.floor( minutes / 60000 );
         if (minutes < 10) {
             minutes = "0" + minutes;
             return minutes;
         } else {
             return minutes;
         }
-    }.property('duration','hours'),
+    }.property('timeRemaining','hours'),
     seconds: function () {
-        var hours = parseInt(this.get('hours')) * 3600;
-        var minutes = parseInt(this.get('minutes')) * 60;
-        var seconds = this.get('duration') - minutes - hours;
+        var hours = parseInt(this.get('hours')) * 3600000;
+        var minutes = parseInt(this.get('minutes')) * 60000;
+        var seconds = this.get('timeRemaining') - minutes - hours;
+        seconds = seconds / 1000;
         if (seconds < 10) {
             seconds = "0" + seconds;
             return seconds;
         } else {
             return seconds;
         }
-    }.property('duration','hours','minutes')
+    }.property('timeRemaining','hours','minutes')
 });
