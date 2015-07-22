@@ -6,6 +6,8 @@ Inspired by the X-Wing Miniatures Game by Fantasy Flight games.  It allows a tou
 It allows a Tournament organizer to create and manage the round times, while sharing a link to allow
 players to view an approximate time remaining.
 
+This is currently set up to use an API server running on localhost.  My version of the server can be found on its [GitHub](https://github.com/perfectloser/SharedTimerAPI) but this is mainly a temporary solution for development.
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
