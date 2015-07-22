@@ -4,25 +4,15 @@
 <h4>
     Round: {{model.roundNo}}
 </h4>
-<div class="time-display">
-    <span class="time-unit">
-        <div>
-            {{model.hours}}
-        </div>
-    </span>
-    <span class="time-divider">:</span>
-    <span class="time-unit">
-        <div>
-            {{model.minutes}}
-        </div>
-    </span>
-    <span class="time-divider">:</span>
-    <span class="time-unit">
-        <div>
-            {{model.seconds}}
-        </div>
-    </span>
+{{#if model.isActive}}
+    {{view-timer endTime=model.endTime}}
+{{else}}
+<div>
+    <h3>
+        The timer is not currently running.
+    </h3>
 </div>
+{{/if}}
 
 {{#qr-code id=model.id}}
 {{/qr-code}}

@@ -1,60 +1,49 @@
 <h3>
     {{model.name}}
 </h3>
-<div class="time-display">
-    <span class="time-unit">
-        {{#unless model.isActive}}
-            <div>
-                <button {{action 'addHour'}}>{{fa-icon 'chevron-up'}}</button>
-            </div>
-        {{/unless}}
-        <div>
-            {{model.hours}}
-        </div>
-        {{#unless model.isActive}}
-            <div>
-                <button {{action 'removeHour'}}>{{fa-icon 'chevron-down'}}</button>
-            </div>
-        {{/unless}}
-    </span>
-    <span class="time-divider">:</span>
-    <span class="time-unit">
-        {{#unless model.isActive}}
-            <div>
-                <button {{action 'addMinute'}}>{{fa-icon 'chevron-up'}}</button>
-            </div>
-        {{/unless}}
-        <div>
-            {{model.minutes}}
-        </div>
-        {{#unless model.isActive}}
-            <div>
-                <button {{action 'removeMinute'}}>{{fa-icon 'chevron-down'}}</button>
-            </div>
-        {{/unless}}
-    </span>
-    <span class="time-divider">:</span>
-    <span class="time-unit">
-        {{#unless model.isActive}}
-            <div>
-                <button {{action 'addSecond'}}>{{fa-icon 'chevron-up'}}</button>
-            </div>
-        {{/unless}}
-        <div>
-            {{model.seconds}}
-        </div>
-        {{#unless model.isActive}}
-            <div>
-                <button {{action 'removeSecond'}}>{{fa-icon 'chevron-down'}}</button>
-            </div>
-        {{/unless}}
-    </span>
-</div>
 {{#if model.isActive}}
+    {{view-timer endTime=model.endTime}}
     <div>
         <button {{action 'stopTimer'}}>Stop Timer</button>
     </div>
 {{else}}
+    <div class="time-display">
+        <span class="time-unit">
+            <div>
+                <button {{action 'addHour'}}>{{fa-icon 'chevron-up'}}</button>
+            </div>
+            <div>
+                {{model.hours}}
+            </div>
+            <div>
+                <button {{action 'removeHour'}}>{{fa-icon 'chevron-down'}}</button>
+            </div>
+        </span>
+        <span class="time-divider"><span>:</span></span>
+        <span class="time-unit">
+            <div>
+                <button {{action 'addMinute'}}>{{fa-icon 'chevron-up'}}</button>
+            </div>
+            <div>
+                {{model.minutes}}
+            </div>
+            <div>
+                <button {{action 'removeMinute'}}>{{fa-icon 'chevron-down'}}</button>
+            </div>
+        </span>
+        <span class="time-divider"><span>:</span></span>
+        <span class="time-unit">
+            <div>
+                <button {{action 'addSecond'}}>{{fa-icon 'chevron-up'}}</button>
+            </div>
+            <div>
+                {{model.seconds}}
+            </div>
+            <div>
+                <button {{action 'removeSecond'}}>{{fa-icon 'chevron-down'}}</button>
+            </div>
+        </span>
+    </div>
     <div>
         <button {{action 'startTimer'}}>Start Timer</button>
     </div>

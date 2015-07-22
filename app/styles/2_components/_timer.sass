@@ -1,14 +1,12 @@
 .time-display
-    +display(flex)
-    +align-items(center)
-    +justify-content(space-around)
-    max-width:400px
+    +outer-container(400px)
     margin: 5px auto
+    position: relative
 .time-unit
-    +flex(2)
+    +span-columns(2 of 8)
     text-align: center
     font-size: 32px
 .time-divider
-    +flex(1)
+    +span-columns(1 of 8)
     text-align: center
     font-size: 32px
