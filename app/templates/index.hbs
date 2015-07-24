@@ -1,12 +1,10 @@
-<h3>
+<h3 class="section-header">
     Create New Timer
 </h3>
-<div class="content">
-    {{input type="text" value=roomName}}
-    <label>Enter Event Name</label>
-    <button {{action 'create'}}>Create</button>
-    <span class="warning"></span>
-</div>
-<h3>
-    {{#link-to 'find'}} Find a timer{{/link-to}}
+<p>
+    Please enter a name for the tournament or event below. This will help users find your event later.
+</p>
+{{create-timer action="create" param=roomName}}
+<h3 class="section-header">
+    {{#link-to 'find'}} Or you can try to find one!{{/link-to}}
 </h3>
