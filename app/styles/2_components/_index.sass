@@ -1,0 +1,27 @@
+.section-header
+    font-size: 20px
+    text-align: center
+    color:$navy
+    background-color: $green
+    margin: 0
+    padding: 16px 0
+
+p
+    padding: 8px 16px
+
+.input-group
+    display: inline-block
+    position: relative
+
+    label
+        font-style: italic
+        +position(absolute, 50% null null 0px)
+        +transform(translateY(-50%))
+        color: #999
+        pointer-events: none
+        +transition
+
+    input:focus + label,
+    input.has-value + label
+        top: -10px
+        font-size: 12px
