@@ -1,23 +1,43 @@
-.section-header
+.create-section
+    border: 2px solid $lime
+    border-bottom: none
+    background-color: $navy
+
+.index-header
     font-size: 20px
     text-align: center
-    color:$navy
-    background-color: $green
+    color:$black
+    background-color: $lime
     margin: 0
-    padding: 16px 0
+    padding: 16px
 
 p
     padding: 8px 16px
+
+.form-group
+    display: inline-block
+    position: relative
+    left: 50%
+    +transform(translateX(-50%))
+    margin-bottom: 16px
 
 .input-group
     display: inline-block
     position: relative
 
+    input[type="text"]
+        border: none
+        border-bottom: 1px solid $lime
+        background-color: $navy
+        padding: 10px
+        color: $lime
+        max-width: 200px
+
     label
         font-style: italic
-        +position(absolute, 50% null null 0px)
+        +position(absolute, 50% null null 16px)
         +transform(translateY(-50%))
-        color: #999
+        color: $lime
         pointer-events: none
         +transition
 
@@ -25,3 +45,22 @@ p
     input.has-value + label
         top: -10px
         font-size: 12px
+
+.create-button
+    border: 2px solid $lime
+    border-radius: 3px
+    padding: 5px 10px
+    background-color: $navy
+    color: $lime
+    cursor: pointer
+
+.link-section
+    a
+        display: inline-block
+        color: $black
+        background-color: $lime
+        text-decoration: none
+        width: 100%
+        font-size: 20px
+        text-align: center
+        padding: 16px

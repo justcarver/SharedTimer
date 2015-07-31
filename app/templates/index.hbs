@@ -1,10 +1,12 @@
-<h3 class="section-header">
-    Create New Timer
-</h3>
-<p>
-    Please enter a name for the tournament or event below. This will help users find your event later.
-</p>
-{{create-timer action="create" param=roomName}}
-<h3 class="section-header">
-    {{#link-to 'find'}} Or you can try to find one!{{/link-to}}
-</h3>
+<div class="create-section">
+    <h3 class="index-header">
+        Create New Timer
+    </h3>
+    <p>
+        Please enter a name for the tournament or event below. This will help users find your event later.
+    </p>
+    {{create-timer action="create" param=roomName}}
+    <h3 class="link-section">
+        {{#link-to 'find'}} Or click here to find one!{{/link-to}}
+    </h3>
+</div>
