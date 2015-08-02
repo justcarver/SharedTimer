@@ -1,62 +1,65 @@
-<h3>
-    {{model.name}}
-</h3>
-{{#if model.isActive}}
-    {{view-timer endTime=model.endTime}}
-    <div>
-        <button {{action 'stopTimer'}}>Stop Timer</button>
-    </div>
-{{else}}
-    <div class="time-display">
-        <span class="time-unit">
-            <span>Hours</span>
-            <div>
-                <button {{action 'addHour'}}>{{fa-icon 'chevron-up'}}</button>
-            </div>
-            <div>
-                {{model.hours}}
-            </div>
-            <div>
-                <button {{action 'removeHour'}}>{{fa-icon 'chevron-down'}}</button>
-            </div>
-        </span>
-        <span class="time-divider"><span>|</span></span>
-        <span class="time-unit">
-            <span>Mins</span>
-            <div>
-                <button {{action 'addMinute'}}>{{fa-icon 'chevron-up'}}</button>
-            </div>
-            <div>
-                {{model.minutes}}
-            </div>
-            <div>
-                <button {{action 'removeMinute'}}>{{fa-icon 'chevron-down'}}</button>
-            </div>
-        </span>
-        <span class="time-divider"><span>|</span></span>
-        <span class="time-unit">
-            <span>Secs</span><div>
-                <button {{action 'addSecond'}}>{{fa-icon 'chevron-up'}}</button>
-            </div>
-            <div>
-                {{model.seconds}}
-            </div>
-            <div>
-                <button {{action 'removeSecond'}}>{{fa-icon 'chevron-down'}}</button>
-            </div>
-        </span>
-    </div>
-    <div>
-        <button {{action 'startTimer'}}>Start Timer</button>
-    </div>
-{{/if}}
+<div class="main-section">
+    <h3 class="section-header">
+        {{model.name}}
+    </h3>
+    {{#if model.isActive}}
+        {{view-timer endTime=model.endTime}}
+        <div>
+            <button {{action 'stopTimer'}} class='stop-button'>Stop Timer</button>
+        </div>
+    {{else}}
+        <div class="time-manage">
+            <span class="time-unit">
+                <span>Hours</span>
+                <div>
+                    <button {{action 'addHour'}}>{{fa-icon 'chevron-up'}}</button>
+                </div>
+                <div>
+                    {{model.hours}}
+                </div>
+                <div>
+                    <button {{action 'removeHour'}}>{{fa-icon 'chevron-down'}}</button>
+                </div>
+            </span>
+            <span class="time-divider"><span>|</span></span>
+            <span class="time-unit">
+                <span>Mins</span>
+                <div>
+                    <button {{action 'addMinute'}}>{{fa-icon 'chevron-up'}}</button>
+                </div>
+                <div>
+                    {{model.minutes}}
+                </div>
+                <div>
+                    <button {{action 'removeMinute'}}>{{fa-icon 'chevron-down'}}</button>
+                </div>
+            </span>
+            <span class="time-divider"><span>|</span></span>
+            <span class="time-unit">
+                <span>Secs</span>
+                <div>
+                    <button {{action 'addSecond'}}>{{fa-icon 'chevron-up'}}</button>
+                </div>
+                <div>
+                    {{model.seconds}}
+                </div>
+                <div>
+                    <button {{action 'removeSecond'}}>{{fa-icon 'chevron-down'}}</button>
+                </div>
+            </span>
+        </div>
+        <div>
+            <button {{action 'startTimer'}} class="">Start Timer</button>
+        </div>
+    {{/if}}
 
-{{#qr-code  id=model.id}}
-{{/qr-code}}
+    {{#qr-code  id=model.id}}
+    {{/qr-code}}
 
 
-<h3>
-    If you are no longer needing to run a timer, please use the button
-    below to delete this timer.
-</h3>
-<button {{action 'deleteTimer'}}>Delete Timer</button>
+    <h3>
+        If you are no longer needing to run a timer, please use the button
+        below to delete this timer.
+    </h3>
+    <button {{action 'deleteTimer'}}>Delete Timer</button>
+</div>
